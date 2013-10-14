@@ -12,7 +12,6 @@
   </style>
   <![endif]-->
   {{ blog.rss_link }}
-  <title>{{article.title}} &laquo; {{page.title}} | {{site.name}}</title>
 </head>
 
 <body>
@@ -33,7 +32,24 @@
         <span class="news_actions">{{article.author.name}} · <strong><a href="#comments">{{ "comments_for_count" | lc }}: <span class="edy-site-blog-comments-count">{{ article.comments_count }}</span>
 </a></strong></span><br />
         
-        <div class="excerpt clearfix">{% editable article.excerpt %}</div>{% editable article.body %}
+        <div class="excerpt clearfix">{% editable article.excerpt %}</div>
+        {% editable article.body %}
+        
+        {% if editmode %}
+            <div class="cfx article-tags">
+                <div class="article-tag-icon"></div>
+                {% editable article.tags %}
+            </div>
+          {% else %}
+            {% unless article.tags == empty %}
+                <div class="cfx article-tags">
+                    <div class="article-tag-icon"></div>
+                    {% for tag in article.tags %}
+                        <a href="{{ article.page.url }}/tagged/{{ tag.path }}">{{ tag.name }}</a>{% unless forloop.last %}, {% endunless %}
+                    {% endfor %}
+                </div>
+            {% endunless %}
+          {% endif %}
         
         <div class="comments_area">
           <a name="comments"></a>
@@ -41,7 +57,7 @@
           {% for comment in article.comments %}
           <div class="comment_area edy-site-blog-comment">
             <div class="comment_author">{% removebutton %} {{ comment.author }}</div>
-            <div class="comment">{{ comment.body }}</div>
+            <div class="comment">{{ comment.body_html }}</div>
             <div class="clearer"></div>
           </div>
           
@@ -91,7 +107,6 @@
     </div>
     <div class="clearer"></div>
   </div>
-  {% unless editmode %}{{site.analytics}}{% endunless %}
   {% include "JS" %}
 </body>
 </html>
