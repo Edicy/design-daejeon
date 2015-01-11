@@ -17,7 +17,7 @@
     </div>
     <div class="clearer"></div>
     <div id="body">
-      <div id="left_column"  class="box_600">
+      <div id="left_column"  class="box_600" data-search-indexing-allowed="true">
         {% content %}
         
       </div>

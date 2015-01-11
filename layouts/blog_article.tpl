@@ -32,8 +32,8 @@
         <span class="news_actions">{{article.author.name}} · <strong><a href="#comments">{{ "comments_for_count" | lc }}: <span class="edy-site-blog-comments-count">{{ article.comments_count }}</span>
 </a></strong></span><br />
         
-        <div class="excerpt clearfix">{% editable article.excerpt %}</div>
-        {% editable article.body %}
+        <div class="excerpt clearfix" data-search-indexing-allowed="true">{% editable article.excerpt %}</div>
+        <div data-search-indexing-allowed="true">{% editable article.body %}</div>
         
         {% if editmode %}
             <div class="cfx article-tags">
