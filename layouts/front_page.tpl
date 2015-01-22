@@ -17,11 +17,11 @@
     </div>
     <div class="clearer"></div>
     <div id="body">
-      <div id="left_column"  class="box_600" data-search-indexing-allowed="true">
+      <div id="left_column"  class="box_600 content-hyphenate" data-search-indexing-allowed="true">
         {% content %}
         
       </div>
-      <div id="right_column" class="box_300 clearfix">
+      <div id="right_column" class="box_300 clearfix  content-hyphenate">
         {% include "News" %}
         
         {% content name="sidebar" %}
@@ -30,8 +30,8 @@
       </div>
     </div>
     <div class="clearer"></div>
-    <div id="footer">
-       <div class="footer_content clearfix">{% xcontent name="footer" %}</div>
+    <div id="footer" class="">
+       <div class="footer_content clearfix content-hyphenate">{% xcontent name="footer" %}</div>
 
        <div id="edicy">{% loginblock %}{{ "footer_login_link" | lc }}{% endloginblock %}</div>
     </div>

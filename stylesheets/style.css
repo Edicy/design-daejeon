@@ -77,6 +77,14 @@ a img {
   hyphens: auto;
 }
 
+.content-hyphenate {
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
 pre {
   white-space: normal;
 }

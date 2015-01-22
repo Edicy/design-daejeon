@@ -32,8 +32,8 @@
         <span class="news_actions">{{article.author.name}} · <strong><a href="#comments">{{ "comments_for_count" | lc }}: <span class="edy-site-blog-comments-count">{{ article.comments_count }}</span>
 </a></strong></span><br />
         
-        <div class="excerpt clearfix" data-search-indexing-allowed="true">{% editable article.excerpt %}</div>
-        <div data-search-indexing-allowed="true">{% editable article.body %}</div>
+        <div class="excerpt clearfix content-hyphenate" data-search-indexing-allowed="true">{% editable article.excerpt %}</div>
+        <div class="content-hyphenate"data-search-indexing-allowed="true">{% editable article.body %}</div>
         
         {% if editmode %}
             <div class="cfx article-tags">
@@ -55,7 +55,7 @@
           <a name="comments"></a>
           <h2>{{ "comments_for_count" | lc }}: <span class="edy-site-blog-comments-count">{{ article.comments_count }}</span></h2>
           {% for comment in article.comments %}
-          <div class="comment_area edy-site-blog-comment">
+          <div class="comment_area edy-site-blog-comment content-hyphenate">
             <div class="comment_author">{% removebutton %} {{ comment.author }}</div>
             <div class="comment">{{ comment.body_html }}</div>
             <div class="clearer"></div>

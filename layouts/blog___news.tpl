@@ -17,7 +17,7 @@
       {% include "Mainmenu" %}
     </div>
     <div class="clearer"></div>
-    <div id="body">
+    <div id="body" class="content-hyphenate">
       <div id="left_column" class="box_700">
       {% if tags %}
             <div class="tagged-list-header">
