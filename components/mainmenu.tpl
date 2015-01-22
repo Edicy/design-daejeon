@@ -4,7 +4,7 @@
   <li{% unless item.translated? %} class="untranslated"{% endunless %}{% if item.selected? %} class="active"{% endif %}><a href="{{item.url}}"{% unless item.translated? %} class="fci-editor-menuadd"{% endunless %}>{{ item.title }}</a></li>
            
     {% endfor %}
-    {% if editmode %}<li>{% menubtn site.hidden_menuitems %}</li>
+    {% if editmode %}{% if site.hidden_menuitems.size > 0 %}<li>{% menubtn site.hidden_menuitems %}{% endif %}</li>
     <li>{% menuadd %}</li>{% endif %}
     
     

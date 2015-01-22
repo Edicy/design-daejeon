@@ -6,7 +6,7 @@
 {% for level2 in item.visible_children %}
           <li{% unless level2.translated? %} class="untranslated"{% endunless %}><a href="{{level2.url}}"{% unless level2.translated? %} class="fci-editor-menuadd"{% endunless %}{% if level2.selected? %} class="active"{% endif %}>{{level2.title}}</a></li>
 {% endfor %}
-<li>{% menubtn item.hidden_children %}</li>
+{% if item.hidden_children.size > 0 %}<li>{% menubtn item.hidden_children %}</li>{% endif %}
 <li>{% menuadd parent="item" %}</li>
             
         </ul>
